@@ -21,11 +21,11 @@ jobs:
       - name: Installeer afhankelijkheden
         run: npm install
 
-      - name: Installeer CycloneDX Node.js module
-        run: npm install -g @cyclonedx/bom
+      - name: Installeer CycloneDX module als dev dependency
+        run: npm install --save-dev @cyclonedx/bom
 
       - name: Genereer SBOM
-        run: cyclonedx-bom -o sbom.json
+        run: npx cyclonedx-bom -o sbom.json
 
       - name: Upload SBOM-artifact
         uses: actions/upload-artifact@v4
